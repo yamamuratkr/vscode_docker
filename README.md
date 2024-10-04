@@ -43,8 +43,33 @@ git clone https://github.com/yamamuratkr/vscode_docker.git
 
 ![image](https://github.com/user-attachments/assets/e8653eea-4d07-459a-805d-b8424e57e707)
 
-## Djangoを育てる
+## 資材について
+### フォルダ階層
+```
+vscode_docker
+├── docker
+│   ├── nginx         # nginx の Docker コンテナ用資材
+│   ├── postgresql    # postgresql の Docker コンテナ用資材
+│   │   └── init      # DB初期化用SQL（初回コンテナ起動時に実行される）
+│   └── webapp        # Django の Docker コンテナ用資材
+└── src
+    ├── Webapp
+    │   └── webapp
+    │       └── sample  # Django 資材の格納場所
+    └── nginx
+        └── static      # Django に反映される静的資材の格納場所
+            ├── css
+            ├── images
+            └── js      
+```
+
+### Nginxの設定ファイル
+- `vscode_docker/docker/nginx`に`default.conf`と`nginx.conf`が格納されている
+- Nginx の設定が記述されている。これらを編集してコンテナを再起動することで Nginx の独自カスタマイズが可能となる。
+
+### Djangoを育てる
 - コンテナが起動できたらあとは好きにDjangoを育てていけば良い
 - `python manage.py startapp xxxx`で新しいアプリを作成できる
 - viewsを作成することで新しい機能を追加する
-- CSSやjavascript, 画像は`nginx/static`に置くと画面に適用される
+- CSSやjavascript, 画像は`vscode_docker/src/nginx/static`に置くと画面に適用される
+- HTMLは`vscode_docker/src/Webapp/webapp/sample/sample_app/templates`に配置し、views.pyで定義した関数でレンダリングして呼び出すことで画面が表示される。
