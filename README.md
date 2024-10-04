@@ -32,6 +32,17 @@ git clone https://github.com/yamamuratkr/vscode_docker.git
 
 ![image](https://github.com/user-attachments/assets/183fbc34-0e9e-4075-be2d-cc365200e97d)
 
+## Pgadminへの接続
+- ブラウザで以下のURLを入力してPgadminに接続確認
+  - URL: http://localhost:8888
+
+![image](https://github.com/user-attachments/assets/87e66625-75ea-4fda-ba42-b3726bb7614b)
+
+- メールアドレスとパスワードは`docker-compose.yaml`の`enviorment`に記載されている
+- 適宜変更して再度コンテナを起動すると新しいメールアドレスとパスワードでログインできる
+
+![image](https://github.com/user-attachments/assets/e8653eea-4d07-459a-805d-b8424e57e707)
+
 ## Djangoを育てる
 - コンテナが起動できたらあとは好きにDjangoを育てていけば良い
 - `python manage.py startapp xxxx`で新しいアプリを作成できる
