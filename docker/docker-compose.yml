@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  postgresql:
+    image: postgres:12-alpine
+    restart: unless-stopped
+    working_dir: /etc/postgresql
+    volumes:
+      - ./postgresql/postgres-data:/var/lib/postgresql/data
+      - ./postgresql/init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      app-net:
+        ipv4_address: 172.30.0.2
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    ports:
+        - 8888:80
+    volumes:
+        - ./postgresql/pgadmin4_data:/var/lib/pgadmin
+    environment:
+        PGADMIN_DEFAULT_EMAIL: your.own.address@sample.com
+        PGADMIN_DEFAULT_PASSWORD: sample
+    depends_on:
+      - postgresql
+    networks:
+      app-net:
+        ipv4_address: 172.30.0.3
+
+  webapp:
+    expose:
+      - 8000
+    restart: always
+    build: 
+      context: ../
+      dockerfile: docker/webapp/Dockerfile
+    container_name: 'webapp'
+    working_dir: /app/src/webapp
+    tty: true
+    volumes:
+      - ../src/Webapp:/app/src
+    networks:
+      app-net:
+        ipv4_address: 172.30.0.4
+    command: /bin/sh -c "python /app/src/webapp/sample/manage.py runserver 172.30.0.4:8000" # コメントアウトするとコンテナ起動時にDjangoが起動しない
+
+  nginx:
+    build: 
+      context: ../
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+        - 1317:1317
+    depends_on:
+        - webapp
+    volumes:
+      - ../src/nginx/static:/app/static
+    networks:
+      app-net:
+        ipv4_address: 172.30.0.5
+
+networks:
+  app-net:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 172.30.0.0/24

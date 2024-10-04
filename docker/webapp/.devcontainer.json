@@ -1,0 +1,25 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/docker-from-docker-compose
+{
+	"name": "webapp",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "webapp",
+	"workspaceFolder": "/app/src/webapp",
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.linting.pylintEnabled": false,
+		"python.linting.flake8Enabled": true,
+		"python.linting.lintOnSave": true,
+		"python.formatting.provider": "autopep8",
+		"python.linting.flake8Args": [
+			"--ignore=F401,E501"
+		]
+	},
+	
+		// Add the IDs of extensions you want installed when the container is created.
+		"extensions": [
+			"ms-python.python"
+		]
+}

@@ -1,0 +1,5 @@
+###### Requirements without Version Specifiers ######
+psycopg2
+
+###### Requirements with Version Specifiers ######`
+Django==5.0
