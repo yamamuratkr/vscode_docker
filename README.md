@@ -29,7 +29,7 @@ git clone https://github.com/yamamuratkr/vscode_docker.git
 - ブラウザで以下のURLを入力してDjangoアプリに接続確認
   - URL: http://localhost:1317
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/183fbc34-0e9e-4075-be2d-cc365200e97d)
 
 ## Djangoを育てる
 - コンテナが起動できたらあとは好きにDjangoを育てていけば良い
