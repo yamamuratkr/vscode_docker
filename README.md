@@ -24,7 +24,7 @@ git clone https://github.com/yamamuratkr/vscode_docker.git
 
 - Docker Desktopを確認するとコンテナが起動している様子が確認できる
 
-
+![image](https://github.com/user-attachments/assets/35bfdb60-6508-42c4-83ad-97094262539c)
 
 ## Djangoの動作確認
 - ブラウザで以下のURLを入力してDjangoアプリに接続確認
