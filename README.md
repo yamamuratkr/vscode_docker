@@ -13,7 +13,6 @@ VS Code上でDjango+Nginx+Postresql+Pgadminのコンテナを起動するため�
 - Docker Desktopを起動
 - 以下のコマンドでリポジトリをクローン
 ```
-# git clone
 git clone https://github.com/yamamuratkr/vscode_docker.git
 ```
 - VS Codeでcloneした`vscode_docker/docker/webapp`を開く
@@ -21,9 +20,11 @@ git clone https://github.com/yamamuratkr/vscode_docker.git
 
 ![image](https://github.com/user-attachments/assets/af3de7e8-5aa4-4527-95c8-91bcc09cb3c2)
 
+![スクリーンショット 2024-10-04 14 06 12](https://github.com/user-attachments/assets/66a44400-2242-4670-8442-be34e78cab94)
+
 - Docker Desktopを確認するとコンテナが起動している様子が確認できる
 
-![スクリーンショット 2024-10-04 14 06 12](https://github.com/user-attachments/assets/66a44400-2242-4670-8442-be34e78cab94)
+
 
 ## Djangoの動作確認
 - ブラウザで以下のURLを入力してDjangoアプリに接続確認
