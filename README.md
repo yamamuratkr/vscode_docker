@@ -71,5 +71,5 @@ vscode_docker
 - コンテナが起動できたらあとは好きにDjangoを育てていけば良い
 - `python manage.py startapp xxxx`で新しいアプリを作成できる
 - viewsを作成することで新しい機能を追加する
-- CSSやjavascript, 画像は`vscode_docker/src/nginx/static`に置くと画面に適用される
+- CSSやjavascript, 画像は`vscode_docker/src/nginx/static`に置くとHTMLで呼び出すことが可能になる
 - HTMLは`vscode_docker/src/Webapp/webapp/sample/sample_app/templates`に配置し、views.pyで定義した関数でレンダリングして呼び出すことで画面が表示される。
