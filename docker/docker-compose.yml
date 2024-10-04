@@ -49,7 +49,7 @@ services:
     networks:
       app-net:
         ipv4_address: 172.30.0.4
-    # command: /bin/sh -c "python /app/src/webapp/sample/manage.py runserver 172.30.0.4:8000" # コメントアウトするとコンテナ起動時にDjangoが起動しない
+    command: /bin/sh -c "python /app/src/webapp/sample/manage.py runserver 172.30.0.4:8000" # コメントアウトするとコンテナ起動時にDjangoが起動しない
 
   nginx:
     build: 

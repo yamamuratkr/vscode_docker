@@ -1,5 +1,6 @@
 ###### Requirements without Version Specifiers ######
 psycopg2
+django-viewflow
 
 ###### Requirements with Version Specifiers ######`
 Django==5.0
